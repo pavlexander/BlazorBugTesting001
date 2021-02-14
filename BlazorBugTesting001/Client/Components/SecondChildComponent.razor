@@ -1,0 +1,16 @@
+﻿@*note: Following will work:*@
+@*@using BlazorBugTesting001.Shared.Dto;*@
+
+<h1>Child Component</h1>
+
+@{
+    string test = null;
+
+    @*The partial class file is referencing the namespace 'using BlazorBugTesting001.Shared.POCO;' but razor file could not find it!*@
+    @*UNCOMMENT NEXT LINE*@
+    @*List<LanguageDirection> mySharedClassCollection = new List<LanguageDirection>();*@
+}
+
+@code {
+
+}

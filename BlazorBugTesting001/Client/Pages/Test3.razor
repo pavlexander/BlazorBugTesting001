@@ -1,0 +1,29 @@
+﻿@page "/Test3"
+@using BlazorBugTesting001.Client.Components;
+@inject BlazorBugTesting001.Client.Service.MyService MySvc;
+
+<h1>Parent Component</h1>
+
+<p>Parent <code>year</code>: @year</p>
+
+<button @onclick="UpdateYear">Update Parent <code>year</code></button>
+
+@*
+        Scenario 3:
+        Severity	Code	Description	Project	File	Line	Suppression State
+        Error		The attribute names could not be inferred from bind attribute 'bind-Year'. Bind attributes should be of the form 'bind' or 'bind-value' along with their corresponding optional parameters like 'bind-value:event', 'bind:format' etc.	BlazorBugTesting001.Client	C:\Users\pavne\source\repos\BlazorBugTesting001\BlazorBugTesting001\Client\Pages\Test2.razor	9
+
+    UNCOMMENT FOLLOWING LINE:*@
+
+@*UNCOMMENT ME!
+    <Child @bind-Year="MySvc.Year" />*@
+
+@code {
+    private Random r = new Random();
+    private int year = 1979;
+
+    private void UpdateYear()
+    {
+        year = r.Next(1950, 2021);
+    }
+}
